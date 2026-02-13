@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pregunta importante 😌</title>
+
+<style>
+html, body{
+  margin:0;
+  height:100%;
+  font-family:-apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background:#ffe4ec;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+.card{
+  background:white;
+  padding:35px;
+  border-radius:22px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.12);
+  text-align:center;
+  width:90%;
+  max-width:340px;
+}
+
+h2{
+  margin-top:0;
+  color:#333;
+}
+
+.buttons{
+  margin-top:20px;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+}
+
+button{
+  border:none;
+  padding:14px 22px;
+  font-size:17px;
+  border-radius:14px;
+  cursor:pointer;
+}
+
+.yes{
+  background:#ff4d6d;
+  color:white;
+}
+
+.no{
+  margin-top:15px;
+  background:#f1f1f1;
+  color:#444;
+  width:100%;
+}
+
+/* corazones */
+.heart{
+  position:absolute;
+  bottom:-20px;
+  font-size:18px;
+  color:#ff4d6d;
+  opacity:0.25;
+  animation:floatUp linear forwards;
+}
+
+@keyframes floatUp{
+  from{ transform:translateY(0); }
+  to{ transform:translateY(-110vh); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h2>¿Quieres ser mi novia?</h2>
+
+  <div class="buttons">
+    <button class="yes" onclick="yes()">Sí</button>
+    <button class="yes" onclick="yes()">Sí</button>
+  </div>
+
+  <button class="no" onclick="no()">No</button>
+</div>
+
+<script>
+function yes(){
+  alert("Sabía que dirías que sí 😌");
+}
+
+function no(){
+  alert("Si dices que no… es que sí 😌");
+}
+
+/* corazones suaves */
+function heart(){
+  var h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "❤";
+  h.style.left = Math.random()*100 + "vw";
+  h.style.animationDuration = (Math.random()*3+3) + "s";
+  document.body.appendChild(h);
+
+  setTimeout(function(){ h.remove(); }, 5000);
+}
+
+setInterval(heart, 400);
+</script>
+
+</body>
+</html>
